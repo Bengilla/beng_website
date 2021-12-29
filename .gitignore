@@ -127,3 +127,10 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Work File
+.vscode
+.work
+config.py
+upload.html
+upload.css

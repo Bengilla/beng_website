@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}Bengilla{% endblock %}
+{% block content %}
+
+<!-- Main Page -->
+    <section id="main" class="main">
+      <div class="main-page">
+        <div class="en-title title-main">Bengilla.com</div>
+        <a href="#contact" class="deg-font en-title en-contact"><div>co &nbsp;&nbsp;tact</div></a>
+        <a href="#about" class="deg-font en-title en-about"><div>bout</div></a>
+        <a href="#perform" class="deg-font en-title en-perform"><div>perf &nbsp;&nbsp;rmance</div></a>
+
+        <div class="cn cn-contact">联系</div>
+        <div class="cn cn-about">关于</div>
+        <div class="cn cn-perform">演出</div>
+      </div>
+    </section>
+
+<!-- Performance -->
+    <section id="perform" class="perform">
+      <div class="en-title title-perform">
+        <span>performance |</span>
+        <span class="cn-title">演出</span>
+      </div>
+
+     <div class="list-program">
+
+       <!-- Start Program -->
+       {% for i in program %}
+       <div class="program-top">
+          <div class="program-content">
+            <span class="small-title">Title : </span><span>{{ i["title"] }}</span><br>
+            <span class="small-title">Director: </span><span>{{ i["director"] }}</span><br>
+            <!-- <span class="small-title">Set Designer: </span><span>{{ i["set_design"] }}</span><br> -->
+            <span class="small-title">Lighting Designer: </span><span>{{ i["light_design"] }}</span><br>
+          </div>
+        <div class="program-year">{{ i["year"] }}</div>
+       </div>
+          <div class="program-img-frame">
+            <img src="data:;base64, {{ i['img_render1'] }}" class="program-img" onerror="this.style.display='none'"/>
+            <img src="data:;base64, {{ i['img_render2'] }}" class="program-img" onerror="this.style.display='none'"/>
+            <img src="data:;base64, {{ i['img_render3'] }}" class="program-img" onerror="this.style.display='none'"/>
+            <img src="data:;base64, {{ i['img_render4'] }}" class="program-img" onerror="this.style.display='none'"/>
+            <img src="data:;base64, {{ i['img_render5'] }}" class="program-img" onerror="this.style.display='none'"/>
+          </div>
+        <hr>
+        {% endfor %}
+        <!-- End Program -->
+     </div> 
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="en-title title-about">
+        <span>about |</span>
+        <span class="cn-title">关于</span>
+      </div>
+      <div class="img"><img src="/static/img/beng-portfolio.png" width="100%"></div>
+      <div class="content">
+        {{ cn_bio }}<br /><br />{{ en_bio }}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="en-title title-contact">
+        <span>contact |</span>
+        <span class="cn-title">联系</span>
+      </div>
+      <div class="form">
+        <form action="/form" method="post">
+          <p>
+            <label for="name">name: </label>
+            <input class="input" type="text" name="name" placeholder="姓名..." />
+          </p>
+          <p>
+            <label for="content">content: </label>
+            <textarea cols="30" rows="10" name="content" placeholder="内容..."></textarea>
+          </p>
+          <p>
+            <label for="submit"></label>
+            <input class="form-btn" type="submit" value="submit" />
+          </p>
+        </form>
+      </div>
+      <div class="footer"><p>©Bengilla {{ year }}</p></div>
+    </section>
+
+    <div class="icon">
+        <p><a href="#main"><img src="/static/img/up.svg" /></a></p>
+    </div>
+
+{% endblock %}
