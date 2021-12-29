@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from email.mime.text import MIMEText
-from config import *
 import base64
 import datetime as dt
 import smtplib
