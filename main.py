@@ -10,10 +10,10 @@ import os
 
 YEAR = dt.date.today().year
 
-MY_EMAIL = os.environ['MY_EMAIL']
-MY_PASS = os.environ['MY_PASS']
-R_EMAIL = os.environ['R_EMAIL']
-DATABASE_KEY = os.environ['DATABASE_KEY']
+# MY_EMAIL = os.environ['MY_EMAIL']
+# MY_PASS = os.environ['MY_PASS']
+# R_EMAIL = os.environ['R_EMAIL']
+# DATABASE_KEY = os.environ['DATABASE_KEY']
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///perform.db"
