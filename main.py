@@ -10,15 +10,15 @@ import os
 
 YEAR = dt.date.today().year
 
-MY_EMAIL = os.environ['MY_EMAIL']
-MY_PASS = os.environ['MY_PASS']
-R_EMAIL = os.environ['R_EMAIL']
-DATABASE_KEY = os.environ['DATABASE_KEY']
+# MY_EMAIL = os.environ['MY_EMAIL']
+# MY_PASS = os.environ['MY_PASS']
+# R_EMAIL = os.environ['R_EMAIL']
+# DATABASE_KEY = os.environ['DATABASE_KEY']
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///perform.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config['SECRET_KEY'] = DATABASE_KEY
+# app.config['SECRET_KEY'] = DATABASE_KEY
 Bootstrap(app)
 db = SQLAlchemy(app)
 
@@ -50,7 +50,7 @@ def render_picture(data):
     render_pic = base64.b64encode(data).decode('ascii')
     return render_pic
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     program = UploadData.query.order_by(UploadData.year.desc())
     with codecs.open('static/bio/cn_bio.txt', encoding='utf-8') as cn:
