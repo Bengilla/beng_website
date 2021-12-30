@@ -247,6 +247,21 @@ hr {
   width: 30%;
 }
 
+.pdf {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.pdf a {
+  color:rgb(105, 1, 1);
+  text-decoration: none;
+}
+
+.pdf a:hover {
+  color:white;
+  transition-duration: 0.4s;
+}
+
 .content {
   width: 80%;
   margin: auto;
