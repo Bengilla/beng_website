@@ -14,6 +14,7 @@ MY_EMAIL = os.environ['MY_EMAIL']
 MY_PASS = os.environ['MY_PASS']
 R_EMAIL = os.environ['R_EMAIL']
 DATABASE_KEY = os.environ['DATABASE_KEY']
+TEST = os.environ['TEST']
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///perform.db"
@@ -52,12 +53,13 @@ def render_picture(data):
 
 @app.route("/")
 def index():
+    test = TEST
     program = UploadData.query.order_by(UploadData.year.desc())
     with codecs.open('static/bio/cn_bio.txt', encoding='utf-8') as cn:
         cn_bio = cn.read().splitlines()
     with codecs.open('static/bio/en_bio.txt', encoding='utf-8') as en:
         en_bio = en.read().splitlines()
-    return render_template("index.html", year=YEAR, program=program, cn_bio=cn_bio[0], en_bio=en_bio[0])
+    return render_template("index.html", year=YEAR, program=program, cn_bio=cn_bio[0], en_bio=en_bio[0], test=test)
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
