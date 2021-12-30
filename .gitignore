@@ -190,7 +190,6 @@ $RECYCLE.BIN/
 
 # Work File
 .work
-.vscode
 config.py
 upload.html
 upload.css
