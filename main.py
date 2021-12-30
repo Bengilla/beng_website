@@ -95,7 +95,7 @@ def upload():
         db.session.commit()
     return render_template("upload.html") 
 
-@app.route("/form", methods=["POST"])
+@app.route("/form", methods=["GET", "POST"])
 def form():
     if request.method == "POST":
         get_name = request.form["name"]
