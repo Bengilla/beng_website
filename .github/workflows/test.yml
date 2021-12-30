@@ -3,3 +3,4 @@ env:
   MY_PASS: ${{ secrets.MY_PASS }}
   R_EMAIL: ${{ secrets.R_EMAIL }}
   DATABASE_KEY: ${{ secrets.DATABASE_KEY }}
+  TEST: ${{ secrets.TEST }}
