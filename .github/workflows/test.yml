@@ -1,0 +1,7 @@
+- name: execute py script
+  env:
+    MY_EMAIL: ${{ secrets.MY_EMAIL }}
+    MY_PASS: ${{ secrets.MY_PASS }}
+    R_EMAIL: ${{ secrets.R_EMAIL }}
+    DATABASE_KEY: ${{ secrets.DATABASE_KEY }}
+  run: python main.py
