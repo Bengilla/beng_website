@@ -50,7 +50,7 @@ def render_picture(data):
     render_pic = base64.b64encode(data).decode('ascii')
     return render_pic
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     program = UploadData.query.order_by(UploadData.year.desc())
     with codecs.open('static/bio/cn_bio.txt', encoding='utf-8') as cn:
