@@ -12,9 +12,20 @@ jobs:
           then
             echo "Got Email"
           fi
+          if [ "$MY_PASS" == "cupqiidzvvsbbjah" ]
+          then
+            echo "Got Email Password"
+          fi
+          if [ "$R_EMAIL" == "bengilla@outlook.com" ]
+          then
+            echo "Got Email Password"
+          fi
+          if [ "$DATABASE_KEY" == "bengillawebsite" ]
+          then
+            echo "Got Email Password"
+          fi
         env:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASS: ${{ secrets.MY_PASS }}
           R_EMAIL: ${{ secrets.R_EMAIL }}
           DATABASE_KEY: ${{ secrets.DATABASE_KEY }}
-          TEST: ${{ secrets.TEST }}

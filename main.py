@@ -53,13 +53,12 @@ def render_picture(data):
 
 @app.route("/")
 def index():
-    test = TEST
     program = UploadData.query.order_by(UploadData.year.desc())
     with codecs.open('static/bio/cn_bio.txt', encoding='utf-8') as cn:
         cn_bio = cn.read().splitlines()
     with codecs.open('static/bio/en_bio.txt', encoding='utf-8') as en:
         en_bio = en.read().splitlines()
-    return render_template("index.html", year=YEAR, program=program, cn_bio=cn_bio[0], en_bio=en_bio[0], test=test)
+    return render_template("index.html", year=YEAR, program=program, cn_bio=cn_bio[0], en_bio=en_bio[0])
 
 @app.route("/upload", methods=["GET", "POST"])
 def upload():
