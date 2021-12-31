@@ -191,6 +191,7 @@ $RECYCLE.BIN/
 # Work File
 .work
 .github
+.vscode
 config.py
 upload.html
 upload.css
