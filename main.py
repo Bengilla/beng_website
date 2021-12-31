@@ -10,15 +10,16 @@ import codecs
 import os
 
 YEAR = dt.date.today().year
+S3 = S3Connection(os.environ['MY_EMAIL'], os.environ['MY_PASS'], os.environ['R_EMAIL'], os.environ['DATABASE_KEY'])
 
-MY_EMAIL = S3Connection(os.environ['MY_EMAIL'])
-MY_PASS = S3Connection( os.environ['MY_PASS'])
-R_EMAIL = S3Connection(os.environ['R_EMAIL'])
+# MY_EMAIL = S3Connection(os.environ['MY_EMAIL'])
+# MY_PASS = S3Connection( os.environ['MY_PASS'])
+# R_EMAIL = S3Connection(os.environ['R_EMAIL'])
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///perform.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config['SECRET_KEY'] = S3Connection(os.environ['DATABASE_KEY'])
+# app.config['SECRET_KEY'] = DATABASE_KEY
 Bootstrap(app)
 db = SQLAlchemy(app)
 
