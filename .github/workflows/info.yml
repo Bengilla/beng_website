@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: Testing
         run: |
-          echo $TEST
+        if [ "$MY_EMAIL" == "g.tan@qq.com" ]
+        then
+          echo "Got Email"
+        fi
         env:
           MY_EMAIL: ${{ secrets.MY_EMAIL }}
           MY_PASS: ${{ secrets.MY_PASS }}
