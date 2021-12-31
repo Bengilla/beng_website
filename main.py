@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from email.mime.text import MIMEText
-from boto.s3.connection import S3Connection
 import base64
 import datetime as dt
 import smtplib
@@ -10,7 +9,6 @@ import codecs
 import os
 
 YEAR = dt.date.today().year
-# S3 = S3Connection(os.environ['MY_EMAIL'], os.environ['MY_PASS'], os.environ['R_EMAIL'], os.environ['DATABASE_KEY'])
 
 MY_EMAIL = os.environ.get('MY_EMAIL', None)
 MY_PASS = os.environ.get('MY_PASS', None)
