@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from email.mime.text import MIMEText
+from boto.s3.connection import S3Connection
 import base64
 import datetime as dt
 import smtplib
@@ -9,17 +10,18 @@ import codecs
 import os
 
 YEAR = dt.date.today().year
+s3 = S3Connection(os.environ['MY_EMAIL'], os.environ['MY_PASS'], os.environ['R_EMAIL'], os.environ['DATABASE_KEY'])
 
-# MY_EMAIL = os.environ['MY_EMAIL']
-# MY_PASS = os.environ['MY_PASS']
-# R_EMAIL = os.environ['R_EMAIL']
-# DATABASE_KEY = os.environ['DATABASE_KEY']
+MY_EMAIL = os.environ['MY_EMAIL']
+MY_PASS = os.environ['MY_PASS']
+R_EMAIL = os.environ['R_EMAIL']
+DATABASE_KEY = os.environ['DATABASE_KEY']
 TEST = os.environ['TEST']
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///perform.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-# app.config['SECRET_KEY'] = DATABASE_KEY
+app.config['SECRET_KEY'] = DATABASE_KEY
 Bootstrap(app)
 db = SQLAlchemy(app)
 
