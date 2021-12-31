@@ -190,6 +190,7 @@ $RECYCLE.BIN/
 
 # Work File
 .work
+.github
 config.py
 upload.html
 upload.css
