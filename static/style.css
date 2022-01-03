@@ -28,6 +28,16 @@ html, body {
   background-image: url("/static/img/concrete-wall.png");
 }
 
+/* Loader */
+#preloader {
+  background-image: url("/static/img/concrete-wall.png");
+  background: #a1a1a1 url("/static/img/1494.gif") no-repeat center center;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
+
 /* All Section */
 .perform,
 .about,
