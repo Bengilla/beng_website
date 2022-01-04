@@ -31,7 +31,7 @@ html, body {
 /* Loader */
 #preloader {
   background-image: url("/static/img/concrete-wall.png");
-  background: #a1a1a1 url("/static/img/1494.gif") no-repeat center center;
+  background: #a1a1a1 url("/static/img/loading.svg") no-repeat center center;
   height: 100vh;
   width: 100%;
   position: fixed;
