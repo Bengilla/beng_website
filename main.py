@@ -1,12 +1,13 @@
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_bootstrap import Bootstrap
-from email.mime.text import MIMEText
 import base64
-import datetime as dt
-import smtplib
 import codecs
+import datetime as dt
 import os
+import smtplib
+from email.mime.text import MIMEText
+
+from flask import Flask, render_template, request
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
 
 YEAR = dt.date.today().year
 
