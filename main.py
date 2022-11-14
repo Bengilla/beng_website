@@ -95,25 +95,22 @@ def upload():
         db.session.commit()
     return render_template("upload.html") 
 
-@app.route("/form", methods=["GET", "POST"])
-def form():
-    if request.method == "POST":
-        get_name = request.form["name"]
-        get_content = request.form["content"]
-        message_body = f"Name: {get_name}<br> Content: {get_content}"
-        message = MIMEText(message_body, "html")
-        message["Subject"] = f"Subjet: Email from {get_name}"
-        message["To"] = R_EMAIL
-        message["From"] = MY_EMAIL
-        with smtplib.SMTP("smtp.qq.com") as connection:
-            connection.starttls()
-            connection.login(user=MY_EMAIL, password=MY_PASS)
-            connection.send_message(message)
-    return render_template("index.html")
+# @app.route("/form", methods=["GET", "POST"])
+# def form():
+#     if request.method == "POST":
+#         get_name = request.form["name"]
+#         get_content = request.form["content"]
+#         message_body = f"Name: {get_name}<br> Content: {get_content}"
+#         message = MIMEText(message_body, "html")
+#         message["Subject"] = f"Subjet: Email from {get_name}"
+#         message["To"] = R_EMAIL
+#         message["From"] = MY_EMAIL
+#         with smtplib.SMTP("smtp.qq.com") as connection:
+#             connection.starttls()
+#             connection.login(user=MY_EMAIL, password=MY_PASS)
+#             connection.send_message(message)
+#     return render_template("index.html")
 
-@app.route("/test")
-def test():
-    return render_template("test.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
